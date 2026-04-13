@@ -1,6 +1,6 @@
 ---
-name: browser-automation
-description: Browser automation using OpenClaw's managed browser profile. Use when needing to: open web pages, search the web, interact with elements (click/type/select), capture screenshots or snapshots, handle file downloads/uploads, manage browser state (cookies/storage), or debug web pages. Supports both CLI commands and browser tool calls.
+name: openclaw-browser-automation
+description: "Browser automation using OpenClaw's managed browser profile. Use when needing to: open web pages, search the web, interact with elements (click/type/select), capture screenshots or snapshots, handle file downloads/uploads, manage browser state (cookies/storage), or debug web pages. Supports both CLI commands and browser tool calls."
 ---
 
 # Browser Automation Skill
@@ -13,17 +13,28 @@ Automate browser interactions using OpenClaw's dedicated Chrome/Brave/Edge/Chrom
 # Start browser
 openclaw browser start
 
-# Open page and get snapshot
+# 🚀 一键自动填写表单（新增！）
+node ~/.openclaw/workspace/skills/openclaw-browser-automation/scripts/auto-fill.js <url> [fields-json]
+
+# 示例：自动填充测试数据
+node ~/.openclaw/workspace/skills/openclaw-browser-automation/scripts/auto-fill.js https://httpbin.org/forms/post
+
+# 示例：指定字段值
+node ~/.openclaw/workspace/skills/openclaw-browser-automation/scripts/auto-fill.js https://example.com/form '{"姓名":"张三","邮箱":"test@example.com"}'
+
+# 传统手动方式
 openclaw browser open https://example.com
 openclaw browser snapshot --interactive
-
-# Interact using refs from snapshot
 openclaw browser click e12
 openclaw browser type e23 "search query" --submit
-
-# Capture result
 openclaw browser screenshot
 ```
+
+## Smart Features
+
+### 🔄 自动复用已打开页面
+
+`auto-fill.js` 会先检查当前标签页是否已是目标页面，如果是则直接复用，不会重复打开新标签页。这在使用浏览器进行搜索或连续操作时特别有用。
 
 ## Core Workflow
 

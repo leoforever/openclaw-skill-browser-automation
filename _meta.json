@@ -1,0 +1,11 @@
+{
+  "owner": "local",
+  "slug": "openclaw-browser-automation",
+  "displayName": "OpenClaw Browser Automation",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1776046800000,
+    "commit": "local"
+  },
+  "history": []
+}
